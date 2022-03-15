@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const TaskListPage(title: 'Flutter Demo Home Page'),
+      home: TaskListPage.create(),
     );
   }
 }
