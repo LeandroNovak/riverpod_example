@@ -65,7 +65,7 @@ class TaskListPage extends StatelessWidget {
           onPressed: () {
             showDialog(
               context: context,
-              builder: (context) => NewTaskPage.create(),
+              builder: (context) => const NewTaskPage(),
             );
           },
           tooltip: 'Adicionar tarefa',

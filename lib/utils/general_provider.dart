@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:riverpod_example/data/cache/data_source/task_cds.dart';
 import 'package:riverpod_example/data/repository/task_repository.dart';
+import 'package:riverpod_example/presentation/new_task/new_task_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 final _onTaskListChangeSubject = PublishSubject<void>();
@@ -60,5 +61,13 @@ final removeTaskUCProvider = Provider<RemoveTaskUC>(
     taskRepository: ref.watch(taskRepositoryProvider),
     onTaskListChangeSink: ref.watch(taskListChangeSinkProvider),
     logger: ref.watch(errorLoggerProvider),
+  ),
+);
+
+final newTaskBlocProvider = Provider<NewTaskBloc>(
+  (ref) => NewTaskBloc(
+    upsertTaskUC: ref.watch(
+      upsertTaskUCProvider,
+    ),
   ),
 );
